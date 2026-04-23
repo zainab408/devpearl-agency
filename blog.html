@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Post — DevelopersHub Insights</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">⬢</span><span>DevPearl</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="booking.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">Book a Meeting</a>
+    </div>
+  </header>
+
+  <!-- Post Hero Image -->
+  <div class="post-hero" style="margin-top:80px;">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600" alt="Blog hero" />
+  </div>
+
+  <!-- Post Content -->
+  <article class="container">
+    <div class="post-content reveal">
+      <a href="#" class="back-link">← Back to insights</a>
+
+      <span class="badge" style="margin-top:1.5rem;">Engineering</span>
+
+      <h1>Building Scalable Systems: Lessons from Production</h1>
+
+      <div class="post-meta">
+        <div class="author">
+          <div class="author-avatar"></div>
+          <div>
+            <p style="color:var(--text);font-weight:600;">Sarah Chen</p>
+            <p>📅 Apr 20, 2026 · ⏱ 8 min read</p>
+          </div>
+        </div>
+        <div class="share">
+          <span style="color:var(--muted);font-size:0.85rem;margin-right:0.5rem;">Share</span>
+          <button class="btn-icon" id="copy-link" title="Copy link">🔗</button>
+          <button class="btn-icon" title="Facebook">f</button>
+          <button class="btn-icon" title="LinkedIn">in</button>
+        </div>
+      </div>
+
+      <div class="post-body">
+        <p>Building production-grade systems is one of the most rewarding yet challenging aspects of modern software engineering. In this post, we share hard-won lessons from years of shipping at scale.</p>
+
+        <h2>Start with Observability</h2>
+        <p>Before writing any business logic, invest in your observability stack. Logs, metrics, and traces are not optional — they are the foundation of any reliable system.</p>
+
+        <blockquote>
+          "You can't fix what you can't see. Treat observability as a first-class citizen of your architecture."
+        </blockquote>
+
+        <h2>Design for Failure</h2>
+        <p>Every component will fail at some point. Network partitions, disk failures, and bugs are inevitable. Design your systems to gracefully handle these failures rather than hoping they won't happen.</p>
+
+        <p>Implement circuit breakers, retries with exponential backoff, and bulkheads. Test your failure modes regularly with chaos engineering practices.</p>
+
+        <h2>Keep It Simple</h2>
+        <p>Complexity is the enemy of reliability. Every line of code, every service, every dependency is a potential failure point. Start simple and add complexity only when truly needed.</p>
+      </div>
+
+      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1.5rem;align-items:center;">
+        <div class="author-avatar" style="width:64px;height:64px;"></div>
+        <div>
+          <h4 style="color:var(--primary);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.25rem;">Written By</h4>
+          <h3 style="margin-bottom:0.5rem;">Sarah Chen</h3>
+          <p style="color:var(--muted);font-weight:300;">Sarah is a senior engineer at DevelopersHub specializing in scalable systems.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top:6rem;">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><span class="logo-mark">⬢</span><span>DevPearl</span></a>
+          <p class="desc">Building the future of software with AI, automation, and world-class engineering.</p>
+          <div class="socials">
+            <button class="btn-icon">f</button>
+            <button class="btn-icon">⌥</button>
+            <button class="btn-icon">in</button>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul><li><a href="#">Software Development</a></li><li><a href="#">AI Solutions</a></li><li><a href="#">Digital Marketing</a></li><li><a href="#">Post Production</a></li></ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul><li><a href="about.html">About Us</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="#">Blog</a></li><li><a href="contact.html">Contact</a></li></ul>
+        </div>
+        <div>
+          <h4>Stay Updated</h4>
+          <p class="desc">Subscribe for the latest tech insights.</p>
+          <form class="newsletter"><input type="email" placeholder="Enter your email" required /><button type="submit">→</button></form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> DevPearl. All rights reserved.</span>
+        <div class="links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="js"></script>
+</body>
+</html>

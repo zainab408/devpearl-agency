@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Meeting — DevelopersHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0a0a14; --card:#0d0e1a; --border:rgba(255,255,255,0.08);
+      --text:#f5f7fb; --muted:#9ca3b0;
+      --primary:#7c4dff; --primary-glow:rgba(124,77,255,0.4);
+      --font-sans:'Inter',sans-serif; --font-display:'Space Grotesk',sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    h1,h2,h3,h4,h5,h6{font-family:var(--font-display);letter-spacing:-0.02em;line-height:1.15;}
+    a{color:inherit;text-decoration:none;transition:color 0.3s;}
+    a:hover{color:var(--primary);}
+    .container{max-width:1200px;margin:0 auto;padding:0 1.5rem;}
+
+    .btn{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2rem;border-radius:1rem;font-weight:500;font-size:1rem;cursor:pointer;border:1px solid transparent;transition:all 0.3s;text-decoration:none;font-family:inherit;}
+    .btn-primary{background:var(--primary);color:#fff;box-shadow:0 0 20px var(--primary-glow);}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 30px var(--primary-glow);color:#fff;}
+    .btn-icon{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--card);border:1px solid var(--border);cursor:pointer;color:var(--text);transition:all 0.3s;}
+    .btn-icon:hover{background:var(--primary);color:#fff;border-color:var(--primary);}
+
+    .header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,10,20,0.6);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;max-width:1400px;margin:0 auto;}
+    .logo{display:flex;align-items:center;gap:0.6rem;font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--text);}
+    .logo-mark{width:32px;height:32px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px var(--primary-glow);color:#fff;}
+    .nav{display:flex;gap:0.5rem;}
+    .nav a{padding:0.5rem 1rem;border-radius:999px;font-size:0.9rem;color:var(--muted);}
+    .nav a:hover,.nav a.active{background:var(--primary);color:#fff;}
+
+    section{padding:6rem 0;position:relative;}
+    .hero{min-height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding-top:8rem;}
+    .hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 20% 30%,rgba(124,77,255,0.25) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(124,77,255,0.15) 0%,transparent 50%),linear-gradient(180deg,transparent 0%,var(--bg) 100%);}
+    .hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,black 40%,transparent 100%);}
+    .hero-content{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 1.5rem;}
+    .badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;border-radius:999px;background:rgba(124,77,255,0.1);border:1px solid rgba(124,77,255,0.25);color:var(--primary);font-size:0.85rem;font-weight:500;margin-bottom:2rem;}
+    .badge-dot{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+    .hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:800;margin-bottom:1.5rem;}
+    .gradient-text{background:linear-gradient(90deg,var(--primary),#b388ff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .hero p{font-size:1.15rem;color:var(--muted);max-width:700px;margin:0 auto;font-weight:300;}
+
+    .booking-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;}
+    @media (max-width:1000px){.booking-grid{grid-template-columns:1fr;}}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:1.5rem;padding:2.5rem;}
+
+    .step-title{display:flex;align-items:center;gap:0.85rem;margin-bottom:1.5rem;}
+    .step-num{width:36px;height:36px;border-radius:10px;background:rgba(124,77,255,0.15);color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--font-display);}
+    .step-title h3{font-size:1.15rem;}
+
+    .options{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.85rem;}
+    .option{padding:1rem 1.25rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:0.85rem;cursor:pointer;transition:all 0.25s;text-align:left;font-family:inherit;color:var(--text);font-size:0.95rem;}
+    .option:hover{border-color:rgba(124,77,255,0.4);}
+    .option.selected{background:rgba(124,77,255,0.12);border-color:var(--primary);color:#fff;}
+    .option .opt-sub{display:block;color:var(--muted);font-size:0.8rem;margin-top:0.25rem;font-weight:300;}
+
+    .field{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;}
+    .field label{color:var(--muted);font-size:0.9rem;font-weight:500;}
+    .field input,.field textarea,.field select{background:rgba(255,255,255,0.03);border:1px solid var(--border);color:var(--text);padding:1rem 1.25rem;border-radius:0.75rem;font-family:inherit;font-size:1rem;transition:all 0.3s;}
+    .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(124,77,255,0.15);}
+    .field textarea{min-height:120px;resize:vertical;}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+    @media (max-width:768px){.form-grid{grid-template-columns:1fr;}}
+
+    .time-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:0.75rem;}
+    .time-slot{padding:0.85rem 1rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:0.75rem;text-align:center;cursor:pointer;transition:all 0.25s;font-family:inherit;color:var(--text);font-size:0.95rem;}
+    .time-slot:hover{border-color:rgba(124,77,255,0.4);}
+    .time-slot.selected{background:var(--primary);color:#fff;border-color:var(--primary);}
+
+    .summary-card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:1.5rem;padding:2rem;position:sticky;top:6rem;}
+    .summary-card h3{margin-bottom:1.5rem;}
+    .summary-row{display:flex;justify-content:space-between;align-items:center;padding:0.85rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;}
+    .summary-row:last-of-type{border-bottom:none;}
+    .summary-row .label{color:var(--muted);}
+    .summary-row .value{color:var(--text);text-align:right;max-width:60%;}
+    .summary-empty{color:var(--muted);font-size:0.9rem;font-style:italic;padding:1rem 0;}
+    .total-row{padding-top:1.5rem;margin-top:0.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+    .total-row .label{font-weight:600;color:var(--text);}
+    .total-row .value{font-family:var(--font-display);font-size:1.5rem;color:var(--primary);font-weight:700;}
+
+    .perks{margin-top:5rem;}
+    .perk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+    .perk{padding:2rem;background:var(--card);border:1px solid var(--border);border-radius:1.25rem;}
+    .perk-icon{width:48px;height:48px;background:rgba(124,77,255,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.25rem;margin-bottom:1rem;}
+    .perk h4{margin-bottom:0.5rem;}
+    .perk p{color:var(--muted);font-size:0.9rem;font-weight:300;}
+
+    .footer{background:var(--bg);border-top:1px solid var(--border);padding:5rem 0 2.5rem;margin-top:4rem;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:3rem;margin-bottom:4rem;}
+    @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media (max-width:500px){.footer-grid{grid-template-columns:1fr;}}
+    .footer h4{font-size:0.95rem;margin-bottom:1.5rem;}
+    .footer ul{list-style:none;}
+    .footer ul li{margin-bottom:0.85rem;}
+    .footer ul a{color:var(--muted);font-size:0.9rem;}
+    .footer .desc{color:var(--muted);font-size:0.9rem;margin:1rem 0 1.5rem;}
+    .footer .socials{display:flex;gap:0.75rem;}
+    .newsletter{display:flex;gap:0.5rem;}
+    .newsletter input{flex:1;background:var(--card);border:1px solid var(--border);color:var(--text);padding:0.75rem 1.25rem;border-radius:999px;font-family:inherit;}
+    .newsletter button{width:44px;height:44px;border-radius:50%;border:none;background:var(--primary);color:#fff;cursor:pointer;}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:0.85rem;}
+    .footer-bottom .links{display:flex;gap:1.5rem;}
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">⬢</span><span>DevPearl</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="booking.html" class="btn btn-primary" style="padding:0.6rem 1.2rem;">Book a Meeting</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="badge"><span class="badge-dot"></span>Free 30-min Strategy Call</div>
+      <h1>Book a <span class="gradient-text">Meeting</span></h1>
+      <p>Pick a service, choose a time, and our team will be in touch within 24 hours to confirm your consultation.</p>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section style="padding-top:2rem;">
+    <div class="container">
+      <form id="booking-form" class="booking-grid">
+
+        <!-- LEFT: Steps -->
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+          <!-- Step 1: Service -->
+          <div class="card">
+            <div class="step-title"><div class="step-num">1</div><h3>Choose a Service</h3></div>
+            <div class="options" id="service-options">
+              <button type="button" class="option" data-value="Software Development">Software Development<span class="opt-sub">Web · SaaS · APIs</span></button>
+              <button type="button" class="option" data-value="AI Solutions">AI Solutions<span class="opt-sub">LLM · Automation</span></button>
+              <button type="button" class="option" data-value="Mobile Apps">Mobile Apps<span class="opt-sub">iOS · Android</span></button>
+              <button type="button" class="option" data-value="Digital Marketing">Digital Marketing<span class="opt-sub">SEO · Paid Ads</span></button>
+              <button type="button" class="option" data-value="Post Production">Post Production<span class="opt-sub">Video · VFX</span></button>
+              <button type="button" class="option" data-value="IT Consulting">IT Consulting<span class="opt-sub">Strategy · Audit</span></button>
+            </div>
+          </div>
+
+          <!-- Step 2: Type -->
+          <div class="card">
+            <div class="step-title"><div class="step-num">2</div><h3>Meeting Type</h3></div>
+            <div class="options" id="type-options">
+              <button type="button" class="option" data-value="Video Call">📹 Video Call<span class="opt-sub">

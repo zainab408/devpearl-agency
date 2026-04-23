@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — DevelopersHub</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .filters { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-bottom:3rem; }
+    .filter-btn {
+      padding:0.6rem 1.4rem; border-radius:999px;
+      background:transparent; color:var(--muted);
+      border:1px solid var(--border);
+      font-family:inherit; font-size:0.9rem; cursor:pointer;
+      transition:all 0.3s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background:var(--primary); color:#fff; border-color:var(--primary);
+    }
+    .portfolio-item.hidden { display:none; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">⬢</span><span>DevPearl</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="booking.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">Book a Meeting</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 60vh; padding-top: 8rem;">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="badge"><span class="badge-dot"></span>Selected Work</div>
+      <h1>Products We've <span class="gradient-text">Crafted</span></h1>
+      <p>A look at some of the most impactful projects we've delivered for ambitious clients across the globe.</p>
+    </div>
+  </section>
+
+  <!-- Filters + Grid -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <div class="filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+      </div>
+
+      <div class="grid" id="portfolio-grid">
+        <div class="portfolio-item reveal" data-cat="web">
+          <img src="FinDash Analytics.jfif" alt="FinDash" />
+          <div class="overlay">
+            <h3>FinDash Analytics</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Web Platform · Fintech</p>
+     </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="mobile">
+          <img src="HealthTrack App.jfif" alt="HealthTrack" />
+          <div class="overlay">
+            <h3>HealthTrack App</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Mobile · Healthcare</p>
+          </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="ai">
+          <img src="ContentGen AI.jpg" alt="ContentGen AI" />
+          <div class="overlay">
+            <h3>ContentGen AI</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">AI Platform · Marketing</p>
+          </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="web">
+          <img src="Stop ecommerce.jfif" alt="ShopFlow" />
+          <div class="overlay">
+            <h3>ShopFlow Commerce</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Web · E-commerce</p>
+          </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="design">
+          <img src="Lumina Rebrand.jfif" alt="Lumina Brand" />
+          <div class="overlay">
+            <h3>Lumina Rebrand</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Design · Brand Identity</p>
+          </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="ai">
+          <img src="NeuroBot Assistant.jpg" alt="ChatBot AI" />
+          <div class="overlay">
+            <h3>NeuroBot Assistant</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">AI · Customer Support</p>
+          </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="mobile">
+          <img src="FoodieGo Delivery.jfif" alt="FoodieGo" />
+          <div class="overlay">
+            <h3>FoodieGo Delivery</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Mobile · Food &amp; Bev</p>
+          </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="web">
+          <img src="EduStream LMS.jfif" alt="EduStream" />
+          <div class="overlay">
+            <h3>EduStream LMS</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Web · Education</p>
+          </div>
+        </div>
+        <div class="portfolio-item reveal" data-cat="design">
+          <img src="Atlas Studio Site.jfif" alt="Atlas Studio" />
+          <div class="overlay">
+            <h3>Atlas Studio Site</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Design · Web</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Want your project <span style="color:var(--primary)">featured next?</span></h2>
+        <p>Let's build something worth showing off.</p>
+        <a href="contact.html" class="btn btn-primary" style="position:relative;">Start a Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><span class="logo-mark">⬢</span><span>DevPearl</span></a>
+          <p class="desc">Building the future of software with AI, automation, and world-class engineering.</p>
+          <div class="socials"><button class="btn-icon">f</button><button class="btn-icon">⌥</button><button class="btn-icon">in</button></div>
+        </div>
+        <div><h4>Services</h4><ul><li><a href="service.html">Software Development</a></li><li><a href="services.html">AI Solutions</a></li><li><a href="services.html">Digital Marketing</a></li><li><a href="services.html">Post Production</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="#">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h4>Stay Updated</h4><p class="desc">Subscribe for the latest tech insights.</p><form class="newsletter"><input type="email" placeholder="Enter your email" required /><button type="submit">→</button></form></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> DevPearl. All rights reserved.</span>
+        <div class="links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Portfolio filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('#portfolio-grid .portfolio-item');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.filter;
+        items.forEach(item => {
+          if (cat === 'all' || item.dataset.cat === cat) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+  <script src="js"></script>
+</body>
+</html>

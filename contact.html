@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — DevelopersHub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">⬢</span><span>DevPearl</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <a href="booking.html" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">Book a Meeting</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 60vh; padding-top: 8rem;">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Start a <span class="gradient-text">Conversation</span></h1>
+      <p>Have a bold project in mind? We're ready to engineer the solution. Reach out and our team will respond within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- Form + Info -->
+  <section style="padding-top: 2rem;">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="card reveal">
+          <h2 style="margin-bottom:2rem;">Send a Message</h2>
+          <form id="contact-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="John Doe" required />
+              </div>
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="company">Company (Optional)</label>
+                <input id="company" name="company" type="text" placeholder="Acme Inc." />
+              </div>
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" placeholder="Project Inquiry" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project goals and timeline..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message →</button>
+          </form>
+        </div>
+
+        <!-- Info -->
+        <div class="reveal">
+          <div class="info-card">
+            <h2 style="margin-bottom:2rem;">Contact Info</h2>
+            <div class="info-item">
+              <div class="info-icon">✉</div>
+              <div>
+                <h4>Email</h4>
+                <p>hello@developershub.co</p>
+                <p>careers@developershub.co</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">☎</div>
+              <div>
+                <h4>Phone</h4>
+                <p>+1 (555) 123-4567</p>
+                <p style="opacity:0.7;font-size:0.85rem;">Mon-Fri 9am-6pm EST</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">⌖</div>
+              <div>
+                <h4>HQ</h4>
+                <p>123 Innovation Drive<br />Suite 400<br />San Francisco, CA 94105</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h4 style="margin-bottom:1.5rem;">Socials</h4>
+            <div class="socials">
+              <a href="#" class="btn-icon" title="Facebook">f</a>
+              <a href="#" class="btn-icon" title="LinkedIn">in</a>
+              <a href="#" class="btn-icon" title="GitHub">⌥</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-wrap reveal">
+        <iframe
+          title="DevelopersHub HQ Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.0064684611345!2d-122.39568068468186!3d37.79100927975589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580625c485e35%3A0xb3f1eb6c2a78c70a!2sSan%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1700000000000"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-card">
+          <div class="info-icon">⌖</div>
+          <div>
+            <h4 style="margin-bottom:0.25rem;">San Francisco HQ</h4>
+            <p style="color:var(--muted);font-size:0.85rem;">123 Innovation Drive, Suite 400</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (same as index) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><span class="logo-mark">⬢</span><span>DevPearl</span></a>
+          <p class="desc">Building the future of software with AI, automation, and world-class engineering.</p>
+          <div class="socials">
+            <button class="btn-icon">f</button>
+            <button class="btn-icon">⌥</button>
+            <button class="btn-icon">in</button>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul><li><a href="#">Software Development</a></li><li><a href="#">AI Solutions</a></li><li><a href="#">Digital Marketing</a></li><li><a href="#">Post Production</a></li></ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul><li><a href="about.html">About Us</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="#">Blog</a></li><li><a href="contact.html">Contact</a></li></ul>
+        </div>
+        <div>
+          <h4>Stay Updated</h4>
+          <p class="desc">Subscribe for the latest tech insights.</p>
+          <form class="newsletter"><input type="email" placeholder="Enter your email" required /><button type="submit">→</button></form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> DevPearl. All rights reserved.</span>
+        <div class="links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="js"></script>
+</body>
+</html>
